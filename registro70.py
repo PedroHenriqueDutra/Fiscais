@@ -34,6 +34,20 @@ else:
     if cfop_n[0] == "5":
         cfop_n = str(cfop_n).replace("5", "1")
 registro = registro+cfop_n
-
+esq = ''
 preco = dictionari['cteProc']['CTe']['infCte']['vPrest']['vRec'].replace(".","")
-print(preco)
+if len(preco) < 12:
+    for i in range(0, (12-len(preco))):
+        esq = esq + "0"
+    preco = esq+ preco
+registro = registro + preco
+#Ainda a confirmar se é desta forma que gera este campo do sintegra
+
+imposto = dictionari['cteProc']['CTe']['infCte']['vPrest']['vRec'].replace(".","")
+if len(imposto) < 12:
+    for i in range(0, (12-len(imposto))):
+        esq = esq + "0"
+    imposto = esq+ imposto
+registro = registro + imposto
+print(registro)
+
